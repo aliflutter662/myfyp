@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   logincontroller controller = Get.put(logincontroller());
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
+  bool valueone = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +120,29 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 50,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            signInWithGoogle();
+                          },
+                          icon: FaIcon(FontAwesomeIcons.google),
+                          label: Text("Login using Google"),
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(22)),
+                            primary: Colors.red,
+                            textStyle: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Row(
                     children: [
@@ -155,19 +178,22 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        child: CheckboxListTile(
-                          title: Text("Remember Me"),
-                          value: checkedValue,
-                          onChanged: (newValue) {
-                            setState(() {
-                              checkedValue = newValue!;
-                            });
-                          },
-                          controlAffinity: ListTileControlAffinity
-                              .leading, //  <-- leading Checkbox
-                        ),
+                      Checkbox(
+                        value: this.valueone,
+                        onChanged: (bool? valueone) {
+                          setState(() {
+                            this.valueone = valueone!;
+                          });
+                        },
                       ),
+                      Text(
+                        'Remember Me',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Spacer(),
                       TextButton(
                         onPressed: () {},
                         child: Text(
@@ -180,45 +206,24 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 0,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            signInWithGoogle();
-                          },
-                          icon: FaIcon(FontAwesomeIcons.google),
-                          label: Text("Login using Google"),
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(22)),
-                            primary: Colors.red,
-                            textStyle: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 0,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: FaIcon(FontAwesomeIcons.facebook),
-                          label: Text("Login using Facebook"),
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(22)),
-                            primary: Colors.blue.shade800,
-                            textStyle: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //       child: ElevatedButton.icon(
+                  //         onPressed: () {},
+                  //         icon: FaIcon(FontAwesomeIcons.facebook),
+                  //         label: Text("Login using Facebook"),
+                  //         style: ElevatedButton.styleFrom(
+                  //           shape: RoundedRectangleBorder(
+                  //               borderRadius: BorderRadius.circular(22)),
+                  //           primary: Colors.blue.shade800,
+                  //           textStyle: TextStyle(fontSize: 16),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   TextButton(
                     onPressed: () {
                       Navigator.push(context,

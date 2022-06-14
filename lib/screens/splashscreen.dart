@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:fyp/screens/loginpage.dart';
+import 'package:fyp/screens/loginsignup.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen>
 
   void navigationPage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => LoginSignup()));
   }
 
   @override

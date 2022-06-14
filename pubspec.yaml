@@ -42,6 +42,10 @@ dependencies:
   get: ^4.6.1
   flutter_facebook_auth: ^4.2.1
   http: ^0.13.4
+  swipe_button: ^0.0.2
+  dialog_flowtter: ^0.3.3
+  image_picker: ^0.8.5+3
+  # kommunicate_flutter: ^1.4.5
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +71,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/dialog_flow_auth.json
+    - images/
     - images/savefoodwas2te.jpg
     - images/food-waste-world-block-2.png
     - images/logosimple.jpeg

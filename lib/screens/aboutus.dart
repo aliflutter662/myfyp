@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fyp/screens/chatbot.dart';
+import 'package:get/get.dart';
 
 class AboutUS extends StatefulWidget {
   AboutUS({Key? key}) : super(key: key);
@@ -14,36 +16,145 @@ class _AboutUSState extends State<AboutUS> {
     double sceeenWidght = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.black,
         title: Text('About Us'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+          child: SingleChildScrollView(
+              child: Column(children: [
+        Stack(children: [
+          Container(
+            height: screenHeight / 2.1,
+            width: sceeenWidght,
+            child: Image.asset(
+              'images/slide.jpg',
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+            top: 190,
+            left: 10,
+            right: 10,
+            child: Center(
+              child: Text(
+                'Share What You Can',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          )
+        ]),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(0),
           child: Column(
+            children: [Image.asset('images/3.jpg')],
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Text(
+            'Sharing is Caring',
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child:
+              // Container(
+              //   decoration: BoxDecoration(
+              //       border: Border.all(color: Colors.grey, width: 2),
+              //       borderRadius: BorderRadius.circular(12)),
+              //   child:
+              Column(
             children: [
-              Stack(children: [
-                Container(
-                    height: 350,
-                    width: sceeenWidght,
-                    child: Image.asset(
-                      'images/abo.jpg',
-                      fit: BoxFit.fill,
-                    )),
-                Positioned(
-                  top: 170,
-                  left: 150,
-                  right: 150,
-                  child: Text(
-                    'About Us',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                )
-              ]),
               SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Center(
+                    child: Text(
+                      'What is SWYC?',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'Share What you can is a place where anyone can help everyone.'),
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Center(
+                    child: Text(
+                      'Food Waste',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'Thousand of Tons of food is wasted annually for no reason.'),
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Center(
+                    child: Text(
+                      'Excessive Material',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'We all have things lying around that are completly OK but useless for us.'),
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Center(
+                    child: Text(
+                      'Beatae veritatis',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta'),
               ),
               Padding(
                   padding: EdgeInsets.all(8),
@@ -68,146 +179,212 @@ class _AboutUSState extends State<AboutUS> {
               SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 160,
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.cyan.shade100),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Icon(
-                              Icons.delete,
-                              size: 35,
-                              color: Colors.green,
-                            ),
-                            Text(
-                              'Reduce food waste\n',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'Reduce food Waste by sharing the food that is leftover/excessive and help the people get good and clean food to the people.',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+              Center(
+                child: Text(
+                  'OUR MISSION',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
                 ),
               ),
               SizedBox(
-                height: 0,
+                height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 160,
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.cyan.shade100),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Icon(
-                              Icons.thumb_up_alt_rounded,
-                              size: 35,
-                              color: Colors.green,
-                            ),
-                            Text(
-                              'Help the needy\n',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'our main goal is to help everyone and give a platorm where everyone can share anything and help the people in need.',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              Text('Get everything we need to journey together.'),
+              SizedBox(
+                height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 160,
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: Colors.cyan.shade100),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Icon(
-                              Icons.thumb_up_sharp,
-                              size: 35,
-                              color: Colors.green,
-                            ),
-                            Text(
-                              'Clear our excessive thing\n',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'every home has excessive material that is usable but is getting wasted due to no more in use. so rather than throwing those things away just share them.',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
                               ),
-                            ),
-                          ],
+                              Text(
+                                '01',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'Reduce food waste',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Reduce food Waste by sharing the food that is leftover/excessive and help the people get good and clean food to the people.',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                '02',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Help the needy',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'our main goal is to help everyone and give a platorm where everyone can share anything and help the people in need.',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                '03',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Clear our excessive thing',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'every home has excessive material that is usable but is getting wasted due to no more in use. so rather than throwing those things away just share them.',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: Text(
-                  'Our Team',
+                  'DEVELOPRS TEAM',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0, right: 10),
+                child: Text(
+                    'Well organized , professional team mates who developed their brand by their aggressive performance & work.'),
               ),
               SizedBox(
                 height: 20,
@@ -314,124 +491,15 @@ class _AboutUSState extends State<AboutUS> {
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: Container(
-                  height: 600,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.green.shade200,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(52),
-                          topLeft: Radius.circular(52))),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Put Ysour Queries Here',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: Card(
-                            elevation: 5,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'Contact Us',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      labelText: 'Name',
-                                      hintText: 'Enter Your Name',
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      labelText: 'Email',
-                                      hintText: 'Enter Your Email',
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      labelText: 'Reason',
-                                      hintText: 'Reason to Contact',
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: TextFormField(
-                                    maxLines: 5,
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      labelText: 'Message',
-                                      hintText: 'Enter Your Message here...',
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(22)),
-                                      primary: Colors.green,
-                                      minimumSize: const Size(150, 50),
-                                      maximumSize: const Size(150, 50),
-                                    ),
-                                    onPressed: () {},
-                                    child: Text(
-                                      'Submit',
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
         ),
+      ]))),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          Get.to(ChatBott());
+        },
+        child: Icon(Icons.message),
       ),
     );
   }

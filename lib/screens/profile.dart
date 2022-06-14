@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -8,6 +10,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  File? imageLink;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,15 +29,45 @@ class _ProfileState extends State<Profile> {
                   height: 10,
                 ),
                 Center(
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(102),
-                      child: Image.asset(
-                        'images/avatar.png',
-                        height: 150,
-                      )),
-                ),
-                Center(
-                  child: Text('Name'),
+                  child: GestureDetector(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: ((builder) => Bottomsheet()),
+                      );
+                    },
+                    child: Container(
+                        // color: Colors.black,
+                        height: 130,
+                        width: 130,
+                        child: imageLink == null
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.grey.shade300),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(200),
+                                    child: Icon(
+                                      Icons.add_a_photo,
+                                      color: Colors.grey,
+                                      size: 50,
+                                    )),
+                              )
+                            : Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.grey.shade300),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(70),
+                                  clipBehavior: Clip.hardEdge,
+                                  child: Image.file(
+                                    File(imageLink!.path),
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                        decoration: BoxDecoration(shape: BoxShape.circle)),
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -245,6 +278,65 @@ class _ProfileState extends State<Profile> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void getGalleryImage() async {
+    final XFile? image = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+      maxHeight: 500,
+      maxWidth: 500,
+    );
+    setState(() {
+      imageLink = File(image!.path);
+    });
+  }
+
+  void getCameraImage() async {
+    final XFile? image = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+      imageQuality: 50,
+    );
+
+    setState(() {
+      imageLink = File(image!.path);
+    });
+  }
+
+  Widget Bottomsheet() {
+    return Container(
+      height: 100.0,
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        children: [
+          Text(
+            "Chose profile photo",
+            style: TextStyle(color: Colors.black, fontSize: 14),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlatButton.icon(
+                  onPressed: () {
+                    getCameraImage();
+                  },
+                  icon: Icon(Icons.camera),
+                  label: Text("Camera ")),
+              FlatButton.icon(
+                  onPressed: () {
+                    getGalleryImage();
+                  },
+                  icon: Icon(Icons.image),
+                  label: Text("Gallery ")),
+            ],
+          ),
+        ],
       ),
     );
   }

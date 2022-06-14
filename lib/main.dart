@@ -1,4 +1,6 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:fyp/screens/splash1.dart';
 import 'package:fyp/screens/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
@@ -13,7 +15,7 @@ void main() async {
 final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
 
-            home: SplashScreen(),
+            home: MyHomePage(),
             //Sing_InOption(),
           );
         });
